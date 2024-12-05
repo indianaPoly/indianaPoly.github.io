@@ -4,102 +4,330 @@
     <meta charset="UTF-8">
     <meta name="description" content="고현림의 포트폴리오입니다. Portfolio of Ko Hyeon Lim">
     <meta name="author" content="고현림">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>고현림 - Ko Hyeon Lim</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: #f5f9ff;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #3498db;
+            color: white;
+            padding: 6rem 0;
+            text-align: center;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        header h3 {
+            margin: 0;
+            font-weight: 600;
+            font-size: 2.5rem;
+            padding: 0 1rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .section h3 {
+            color: #3498db;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            font-size: 1.8rem;
+        }
+
+        .section h4 {
+            color: #2980b9;
+            margin: 1.5rem 0;
+            text-align: center;
+            font-size: 1.4rem;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: transform 0.2s ease;
+            border: 1px solid #e1e8ed;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .ongoing {
+            border-left: 4px solid #3498db;
+            background-color: #f8fbff;
+        }
+        
+        .ongoing .date {
+            color: #3498db !important;
+        }
+
+        .ongoing:hover {
+            background-color: #f0f7ff;
+        }
+
+        .completed {
+            border-left: 4px solid #7f8c8d;
+            background-color: #ffffff;
+        }
+
+        .completed .date {
+            color: #7f8c8d !important;
+        }
+
+        .date {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .description {
+            color: #666;
+            font-size: 1rem;
+        }
+
         a {
             text-decoration: none;
-            color: black;
+            color: inherit;
+            display: block;
+        }
+
+        footer {
+            background: white;
+            padding: 2rem;
+            margin-top: 2rem;
+            text-align: center;
+            box-shadow: 0 -2px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        footer h3 {
+            color: #3498db;
+            margin-bottom: 1rem;
+        }
+
+        footer h5 {
+            color: #555;
+            margin: 0.5rem 0;
+        }
+
+        footer a {
+            display: inline;
+            color: #3498db;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 1200px) {
+            .project-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+
+            header {
+                padding: 3rem 0;
+            }
+
+            header h3 {
+                font-size: 1.8rem;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
         }
     </style>
 </head>
-  
-  <body>
-      <header>
-          <h3 align="center">Welcome to My Page!</h3>
-          <h3 align="center">Exploring innovative technologies and adding value through creative approaches.</h3>
-      </header>
+<body>
+    <header>
+        <div class="container">
+            <h3>Exploring innovative technologies and adding value through creative approaches.</h3>
+        </div>
+    </header>
 
-      <hr />
+    <div class="container">
+        <div class="section">
+            <h3>Education</h3>
+            <div class="project-grid">
+                <div class="card ongoing">
+                    <h5 class="date">2022.09 ~ 현재</h5>
+                    <h5 class="description">[숭실대학교] Software Engineering</h5>
+                </div>
+                <div class="card completed">
+                    <h5 class="date">2019.03 ~ 2022.08</h5>
+                    <h5 class="description">[숭실대학교] Mechanical Engineering</h5>
+                </div>
+            </div>
+        </div>
 
-      <div align="center">
-          <h3>Education</h3>
-          <div>
-              <h5>2019.03 ~ 2022.08<br />[숭실대학교] Mechanical Engineering</h5>
-              <h5>2022.09 ~ 현재<br />[숭실대학교] Software Engineering</h5>
-          </div>
-      </div>
+        <div class="section">
+            <h3>Project Experience</h3>
+            
+            <h4>[Development]</h4>
+            <div class="project-grid">
+                <a href="https://gdscsoongsil.pages.dev/">
+                    <div class="card ongoing">
+                        <h5 class="date">2023.09 ~ 현재</h5>
+                        <h5 class="description">[Google Development Student Clubs] MEMBER</h5>
+                    </div>
+                </a>
+                <a href="https://github.com/indianaPoly/blockchain-localSimulator">
+                    <div class="card ongoing">
+                        <h5 class="date">2024.09 ~ 현재</h5>
+                        <h5 class="description">[개인] Blockchain Local Simulator</h5>
+                    </div>
+                </a>
+                <a href="https://github.com/indianaPoly/go-cliApp">
+                    <div class="card ongoing">
+                        <h5 class="date">2024.09 ~ 현재</h5>
+                        <h5 class="description">[개인] GO LANG CLI-APPLICATION</h5>
+                    </div>
+                </a>
+                <a href="https://yourssu.com/">
+                    <div class="card completed">
+                        <h5 class="date">2023.01 ~ 2024.08</h5>
+                        <h5 class="description">[YOURSSU] Web Frontend MEMBER</h5>
+                    </div>
+                </a>
+                <a href="https://github.com/indianaPoly/realword_PB">
+                    <div class="card completed">
+                        <h5 class="date">2023.06 ~ 2023.09</h5>
+                        <h5 class="description">[YOURSSU] RealWorld Pair Programming</h5>
+                    </div>
+                </a>
+                <a href="https://github.com/yourssu/Yourssu-landing-page">
+                    <div class="card completed">
+                        <h5 class="date">2024.01 ~ 2024.03</h5>
+                        <h5 class="description">[YOURSSU] Landing Page</h5>
+                    </div>
+                </a>
+                <a href="https://github.com/indianaPoly/ai-tsp">
+                    <div class="card completed">
+                        <h5 class="date">2024.03 ~ 2024.06</h5>
+                        <h5 class="description">[숭실대학교] Traveling Salesman Problem</h5>
+                    </div>
+                </a>
+                <a href="https://github.com/indianaPoly/frontend-bedBeacon">
+                    <div class="card completed">
+                        <h5 class="date">2024.03 ~ 2024.06</h5>
+                        <h5 class="description">[숭실대학교] Bed Beacon</h5>
+                    </div>
+                </a>
+                <a href="https://github.com/indianaPoly/blockchain-arbitrage">
+                    <div class="card completed">
+                        <h5 class="date">2024.06 ~ 2024.09</h5>
+                        <h5 class="description">[BlockWaveLabs] OnChain Arbitrage</h5>
+                    </div>
+                </a>
+                <a href="https://github.com/indianaPoly/blockchain-mev">
+                    <div class="card completed">
+                        <h5 class="date">2024.08 ~ 2024.09</h5>
+                        <h5 class="description">[개인] MEV Template - Uniswap V3</h5>
+                    </div>
+                </a>
+                <a href="https://github.com/indianaPoly/backend-telegrambot">
+                    <div class="card completed">
+                        <h5 class="date">2024.08 ~ STOP</h5>
+                        <h5 class="description">[개인] Job Telegram Bot</h5>
+                    </div>
+                </a>
+            </div>
 
-      <hr />
+            <h4>[Non-Development]</h4>
+            <div class="project-grid">
+                <div class="card completed">
+                    <h5 class="date">2019.09 ~ 2019.12</h5>
+                    <h5 class="description">[만장일치] 토론동아리</h5>
+                </div>
+                <div class="card completed">
+                    <h5 class="date">2022.03 ~ 2022.06</h5>
+                    <h5 class="description">[숭실대학교] 오픈소스를 이용한 실전창업</h5>
+                </div>
+                <div class="card completed">
+                    <h5 class="date">2022.08 ~ 2022.10</h5>
+                    <h5 class="description">[숭실대학교] 2022 슈퍼스타창업경진대화 (최우수상)</h5>
+                </div>
+                <div class="card completed">
+                    <h5 class="date">2023.03 ~ 2023.07</h5>
+                    <h5 class="description">[숭실대학교] 새내기 축구대회 (DF, 준우승)</h5>
+                </div>
+                <div class="card completed">
+                    <h5 class="date">2023.03 ~ 2023.07</h5>
+                    <h5 class="description">[KUSF] 한국대학스포츠협의회 데이터분석 교육</h5>
+                </div>
+                <div class="card completed">
+                    <h5 class="date">2023.07 ~ 2023.07</h5>
+                    <h5 class="description">[KUSF] 춘천시 마케팅 캠프 및 해커톤 (대학생올림픽)</h5>
+                </div>
+                <div class="card completed">
+                    <h5 class="date">2023.09 ~ 2023.12</h5>
+                    <h5 class="description">[숭실대학교] 백마기축구대회 (GK, 준우승)</h5>
+                </div>
+                <div class="card completed">
+                    <h5 class="date">2023.09 ~ 2023.12</h5>
+                    <h5 class="description">[SUFA] 서울권대학축구동아리연맹 대회 (GK, 우승)</h5>
+                </div>
+            </div>
+        </div>
 
-      <div align="center">
-          <h3>Project Experience</h3>
+        <div class="section">
+            <h3>Work Experience</h3>
+            <div class="project-grid">
+                <div class="card completed">
+                    <h5 class="date">2024.06 ~ 2024.08</h5>
+                    <h5 class="description">[BlockWaveLabs] Contract, Quant Developer</h5>
+                </div>
+            </div>
+        </div>
+    </div>
 
-          <h4>[Development]</h4>
-          <div>
-              <a href="https://yourssu.com/">
-                  <h5>2023.01 ~ 2024.08<br />[YOURSSU] Web Frontend MEMBER</h5>
-              </a>
-              <a href="https://gdscsoongsil.pages.dev/">
-                  <h5>2023.09 ~ 현재<br />[Google Development Student Clubs] MEMBER</h5>
-              </a>
-              <a href="https://github.com/indianaPoly/realword_PB">
-                  <h5>2023.06 ~ 2023.09<br />[YOURSSU] RealWorld Pair Programming</h5>
-              </a>
-              <a href="https://github.com/yourssu/Yourssu-landing-page">
-                  <h5>2024.01 ~ 2024.03<br />[YOURSSU] Landing Page</h5>
-              </a>
-              <a href="https://github.com/indianaPoly/ai-tsp">
-                  <h5>2024.03 ~ 2024.06<br />[숭실대학교] Traveling Salesman Problem</h5>
-              </a>
-              <a href="https://github.com/indianaPoly/frontend-bedBeacon">
-                  <h5>2024.03 ~ 2024.06<br />[숭실대학교] Bed Beacon</h5>
-              </a>
-              <a href="https://github.com/indianaPoly/blockchain-arbitrage">
-                  <h5>2024.06 ~ 2024.09<br />[BlockWaveLabs] OnChain Arbitrage</h5>
-              </a>
-              <a href="https://github.com/indianaPoly/blockchain-mev">
-                  <h5>2024.08 ~ 2024.09<br />[개인] MEV Template - Uniswap V3</h5>
-              </a>
-              <a href="https://github.com/indianaPoly/backend-telegrambot">
-                  <h5>2024.08 ~ STOP<br />[개인] Job Telegram Bot</h5>
-              </a>
-              <a href="https://github.com/indianaPoly/blockchain-localSimulator">
-                  <h5>2024.09 ~ 현재<br />[개인] Blockchain Local Simulator</h5>
-              </a>
-              <a href="https://github.com/indianaPoly/go-cliApp">
-                  <h5>2024.09 ~ 현재<br />[개인] GO LANG CLI-APPLICATION</h5>
-              </a>
-          </div>
-          <br />
-
-          <h4>[Non-Development]</h4>
-          <div>
-              <h5>2019.09 ~ 2019.12<br />[만장일치] 토론동아리</h5>
-              <h5>2022.03 ~ 2022.06<br />[숭실대학교] 오픈소스를 이용한 실전창업</h5>
-              <h5>2022.08 ~ 2022.10<br />[숭실대학교] 2022 슈퍼스타창업경진대화 (최우수상)</h5>
-              <h5>2023.03 ~ 2023.07<br />[숭실대학교] 새내기 축구대회 (DF, 준우승)</h5>
-              <h5>2023.03 ~ 2023.07<br />[KUSF] 한국대학스포츠협의회 데이터분석 교육</h5>
-              <h5>2023.07 ~ 2023.07<br />[KUSF] 춘천시 마케팅 캠프 및 해커톤 (대학생올림픽)</h5>
-              <h5>2023.09 ~ 2023.12<br />[숭실대학교] 백마기축구대회 (GK, 준우승)</h5>
-              <h5>2023.09 ~ 2023.12<br />[SUFA] 서울권대학축구동아리연맹 대회 (GK, 우승)</h5>
-          </div>
-      </div>
-
-      <hr />
-
-      <div align="center">
-          <h3>Work Experience</h3>
-          <div>
-              <h5>2024.06 ~ 2024.08<br />[BlockWaveLabs] Contract, Quant Developer</h5>
-          </div>
-      </div>
-
-      <hr />
-
-      <footer align="center">
-          <h3>Contact</h3>
-          <h5>github : <a href="https://github.com/indianaPoly">indianaPoly</a></h5>
-          <h5>mail : hyeonlimgo5@gmail.com</h5>
-      </footer>
-  </body>
+    <footer>
+        <div class="container">
+            <h3>Contact</h3>
+            <h5>github : <a href="https://github.com/indianaPoly">indianaPoly</a></h5>
+            <h5>mail : hyeonlimgo5@gmail.com</h5>
+        </div>
+    </footer>
+</body>
 </html>
