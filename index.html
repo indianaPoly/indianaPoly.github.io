@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>고현림 - Ko Hyeon Lim</title>
     <style>
+        /* 기존 스타일 유지 */
         * {
             margin: 0;
             padding: 0;
@@ -88,6 +89,7 @@
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
 
+        /* 진행중/완료된 프로젝트 스타일 */
         .ongoing {
             border-left: 4px solid #3498db;
             background-color: #f8fbff;
@@ -110,15 +112,24 @@
             color: #7f8c8d !important;
         }
 
+        /* 새로운 description 스타일 */
         .date {
             font-weight: bold;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.8rem;
             font-size: 1rem;
         }
 
-        .description {
-            color: #666;
+        .description .organization {
+            color: #3498db;
+            font-weight: 600;
+            margin-bottom: 0.4rem;
             font-size: 1rem;
+        }
+
+        .description .activity {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.4;
         }
 
         a {
@@ -127,32 +138,7 @@
             display: block;
         }
 
-        footer {
-            background: white;
-            padding: 2rem;
-            margin-top: 2rem;
-            text-align: center;
-            box-shadow: 0 -2px 15px rgba(0, 0, 0, 0.05);
-        }
-
-        footer h3 {
-            color: #3498db;
-            margin-bottom: 1rem;
-        }
-
-        footer h5 {
-            color: #555;
-            margin: 0.5rem 0;
-        }
-
-        footer a {
-            display: inline;
-            color: #3498db;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
-        }
+        /* 기존 스타일 계속... */
 
         @media (max-width: 1200px) {
             .project-grid {
@@ -177,6 +163,52 @@
                 padding: 0 1rem;
             }
         }
+
+        footer {
+            background: white;
+            padding: 3rem 0;
+            margin-top: 2rem;
+            text-align: center;
+            box-shadow: 0 -2px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .contact-container {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+        
+        footer h3 {
+            color: #3498db;
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #666;
+        }
+        
+        .contact-item a {
+            color: #3498db;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        
+        .contact-item a:hover {
+            color: #2980b9;
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            .contact-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -192,11 +224,17 @@
             <div class="project-grid">
                 <div class="card ongoing">
                     <h5 class="date">2022.09 ~ 현재</h5>
-                    <h5 class="description">[숭실대학교] Software Engineering</h5>
+                    <div class="description">
+                        <div class="organization">숭실대학교</div>
+                        <div class="activity">Software Engineering</div>
+                    </div>
                 </div>
                 <div class="card completed">
                     <h5 class="date">2019.03 ~ 2022.08</h5>
-                    <h5 class="description">[숭실대학교] Mechanical Engineering</h5>
+                    <div class="description">
+                        <div class="organization">숭실대학교</div>
+                        <div class="activity">Mechanical Engineering</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -209,67 +247,100 @@
                 <a href="https://gdscsoongsil.pages.dev/">
                     <div class="card ongoing">
                         <h5 class="date">2023.09 ~ 현재</h5>
-                        <h5 class="description">[Google Development Student Clubs] MEMBER</h5>
+                        <div class="description">
+                            <div class="organization">Google Development Student Clubs</div>
+                            <div class="activity">Web Development Member</div>
+                        </div>
                     </div>
                 </a>
                 <a href="https://github.com/indianaPoly/blockchain-localSimulator">
                     <div class="card ongoing">
                         <h5 class="date">2024.09 ~ 현재</h5>
-                        <h5 class="description">[개인] Blockchain Local Simulator</h5>
+                        <div class="description">
+                            <div class="organization">개인 프로젝트</div>
+                            <div class="activity">Blockchain Local Simulator</div>
+                        </div>
                     </div>
                 </a>
                 <a href="https://github.com/indianaPoly/go-cliApp">
                     <div class="card ongoing">
                         <h5 class="date">2024.09 ~ 현재</h5>
-                        <h5 class="description">[개인] GO LANG CLI-APPLICATION</h5>
+                        <div class="description">
+                            <div class="organization">개인 프로젝트</div>
+                            <div class="activity">GO LANG CLI-APPLICATION</div>
+                        </div>
                     </div>
                 </a>
                 <a href="https://yourssu.com/">
                     <div class="card completed">
                         <h5 class="date">2023.01 ~ 2024.08</h5>
-                        <h5 class="description">[YOURSSU] Web Frontend MEMBER</h5>
+                        <div class="description">
+                            <div class="organization">YOURSSU</div>
+                            <div class="activity">Web Frontend Member</div>
+                        </div>
                     </div>
                 </a>
                 <a href="https://github.com/indianaPoly/realword_PB">
                     <div class="card completed">
                         <h5 class="date">2023.06 ~ 2023.09</h5>
-                        <h5 class="description">[YOURSSU] RealWorld Pair Programming</h5>
+                        <div class="description">
+                            <div class="organization">YOURSSU</div>
+                            <div class="activity">RealWorld Pair Programming</div>
+                        </div>
                     </div>
                 </a>
                 <a href="https://github.com/yourssu/Yourssu-landing-page">
                     <div class="card completed">
                         <h5 class="date">2024.01 ~ 2024.03</h5>
-                        <h5 class="description">[YOURSSU] Landing Page</h5>
+                        <div class="description">
+                            <div class="organization">YOURSSU</div>
+                            <div class="activity">Landing Page Development</div>
+                        </div>
                     </div>
                 </a>
                 <a href="https://github.com/indianaPoly/ai-tsp">
                     <div class="card completed">
                         <h5 class="date">2024.03 ~ 2024.06</h5>
-                        <h5 class="description">[숭실대학교] Traveling Salesman Problem</h5>
+                        <div class="description">
+                            <div class="organization">숭실대학교</div>
+                            <div class="activity">Traveling Salesman Problem 연구</div>
+                        </div>
                     </div>
                 </a>
                 <a href="https://github.com/indianaPoly/frontend-bedBeacon">
                     <div class="card completed">
                         <h5 class="date">2024.03 ~ 2024.06</h5>
-                        <h5 class="description">[숭실대학교] Bed Beacon</h5>
+                        <div class="description">
+                            <div class="organization">숭실대학교</div>
+                            <div class="activity">Bed Beacon Project</div>
+                        </div>
                     </div>
                 </a>
                 <a href="https://github.com/indianaPoly/blockchain-arbitrage">
                     <div class="card completed">
                         <h5 class="date">2024.06 ~ 2024.09</h5>
-                        <h5 class="description">[BlockWaveLabs] OnChain Arbitrage</h5>
+                        <div class="description">
+                            <div class="organization">BlockWaveLabs</div>
+                            <div class="activity">OnChain Arbitrage 개발</div>
+                        </div>
                     </div>
                 </a>
                 <a href="https://github.com/indianaPoly/blockchain-mev">
                     <div class="card completed">
                         <h5 class="date">2024.08 ~ 2024.09</h5>
-                        <h5 class="description">[개인] MEV Template - Uniswap V3</h5>
+                        <div class="description">
+                            <div class="organization">개인 프로젝트</div>
+                            <div class="activity">MEV Template - Uniswap V3</div>
+                        </div>
                     </div>
                 </a>
                 <a href="https://github.com/indianaPoly/backend-telegrambot">
                     <div class="card completed">
                         <h5 class="date">2024.08 ~ STOP</h5>
-                        <h5 class="description">[개인] Job Telegram Bot</h5>
+                        <div class="description">
+                            <div class="organization">개인 프로젝트</div>
+                            <div class="activity">Job Telegram Bot</div>
+                        </div>
                     </div>
                 </a>
             </div>
@@ -278,35 +349,59 @@
             <div class="project-grid">
                 <div class="card completed">
                     <h5 class="date">2019.09 ~ 2019.12</h5>
-                    <h5 class="description">[만장일치] 토론동아리</h5>
+                    <div class="description">
+                        <div class="organization">만장일치</div>
+                        <div class="activity">토론동아리 활동</div>
+                    </div>
                 </div>
                 <div class="card completed">
                     <h5 class="date">2022.03 ~ 2022.06</h5>
-                    <h5 class="description">[숭실대학교] 오픈소스를 이용한 실전창업</h5>
+                    <div class="description">
+                        <div class="organization">숭실대학교</div>
+                        <div class="activity">오픈소스를 이용한 실전창업</div>
+                    </div>
                 </div>
                 <div class="card completed">
                     <h5 class="date">2022.08 ~ 2022.10</h5>
-                    <h5 class="description">[숭실대학교] 2022 슈퍼스타창업경진대화 (최우수상)</h5>
+                    <div class="description">
+                        <div class="organization">숭실대학교</div>
+                        <div class="activity">2022 슈퍼스타창업경진대회 (최우수상)</div>
+                    </div>
                 </div>
                 <div class="card completed">
                     <h5 class="date">2023.03 ~ 2023.07</h5>
-                    <h5 class="description">[숭실대학교] 새내기 축구대회 (DF, 준우승)</h5>
+                    <div class="description">
+                        <div class="organization">숭실대학교</div>
+                        <div class="activity">새내기 축구대회 (DF, 준우승)</div>
+                    </div>
                 </div>
                 <div class="card completed">
                     <h5 class="date">2023.03 ~ 2023.07</h5>
-                    <h5 class="description">[KUSF] 한국대학스포츠협의회 데이터분석 교육</h5>
+                    <div class="description">
+                        <div class="organization">KUSF</div>
+                        <div class="activity">한국대학스포츠협의회 데이터분석 교육</div>
+                    </div>
                 </div>
                 <div class="card completed">
                     <h5 class="date">2023.07 ~ 2023.07</h5>
-                    <h5 class="description">[KUSF] 춘천시 마케팅 캠프 및 해커톤 (대학생올림픽)</h5>
+                    <div class="description">
+                        <div class="organization">KUSF</div>
+                        <div class="activity">춘천시 마케팅 캠프 및 해커톤 (대학생올림픽)</div>
+                    </div>
                 </div>
                 <div class="card completed">
                     <h5 class="date">2023.09 ~ 2023.12</h5>
-                    <h5 class="description">[숭실대학교] 백마기축구대회 (GK, 준우승)</h5>
+                    <div class="description">
+                        <div class="organization">숭실대학교</div>
+                        <div class="activity">백마기축구대회 (GK, 준우승)</div>
+                    </div>
                 </div>
                 <div class="card completed">
                     <h5 class="date">2023.09 ~ 2023.12</h5>
-                    <h5 class="description">[SUFA] 서울권대학축구동아리연맹 대회 (GK, 우승)</h5>
+                    <div class="description">
+                        <div class="organization">SUFA</div>
+                        <div class="activity">서울권대학축구동아리연맹 대회 (GK, 우승)</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -316,7 +411,10 @@
             <div class="project-grid">
                 <div class="card completed">
                     <h5 class="date">2024.06 ~ 2024.08</h5>
-                    <h5 class="description">[BlockWaveLabs] Contract, Quant Developer</h5>
+                    <div class="description">
+                        <div class="organization">BlockWaveLabs</div>
+                        <div class="activity">Contract, Quant Developer</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -325,8 +423,16 @@
     <footer>
         <div class="container">
             <h3>Contact</h3>
-            <h5>github : <a href="https://github.com/indianaPoly">indianaPoly</a></h5>
-            <h5>mail : hyeonlimgo5@gmail.com</h5>
+            <div class="contact-container">
+                <div class="contact-item">
+                    <span>github:</span>
+                    <a href="https://github.com/indianaPoly" target="_blank">indianaPoly</a>
+                </div>
+                <div class="contact-item">
+                    <span>mail:</span>
+                    <a href="mailto:hyeonlimgo5@gmail.com">hyeonlimgo5@gmail.com</a>
+                </div>
+            </div>
         </div>
     </footer>
 </body>
