@@ -1,439 +1,980 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="고현림의 포트폴리오입니다. Portfolio of Ko Hyeon Lim">
-    <meta name="author" content="고현림">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>고현림 - Ko Hyeon Lim</title>
+    <title>고현림 | 개발자 포트폴리오</title>
+    <meta name="description" content="계속해서 도전하는 개발자 고현림의 포트폴리오입니다.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <style>
-        /* 기존 스타일 유지 */
+        :root {
+            --primary: #4a6cf7;
+            --primary-dark: #3b5fe2;
+            --secondary: #6c757d;
+            --dark: #212529;
+            --light: #f8f9fa;
+            --gray: #6c757d;
+            --gray-light: #e9ecef;
+            --success: #56CE8B;
+            --gradient: linear-gradient(135deg, #4a6cf7, #8a74f9);
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 70px;
         }
 
         body {
-            background-color: #f5f9ff;
-            color: #333;
+            background-color: #f8f9fa;
+            color: var(--dark);
             line-height: 1.6;
         }
 
         header {
-            background-color: #3498db;
+            background: var(--gradient);
             color: white;
-            padding: 6rem 0;
-            text-align: center;
-            margin-bottom: 2rem;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
         }
 
-        header h3 {
-            margin: 0;
-            font-weight: 600;
-            font-size: 2.5rem;
-            padding: 0 1rem;
-        }
-
-        .container {
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 2rem;
         }
 
-        .section {
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 25px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        nav ul li a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
             background: white;
-            border-radius: 10px;
-            padding: 2rem;
-            margin: 2rem 0;
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+            bottom: -5px;
+            left: 0;
+            transition: width 0.3s ease;
         }
 
-        .section h3 {
-            color: #3498db;
-            margin-bottom: 1.5rem;
-            text-align: center;
-            font-size: 1.8rem;
+        nav ul li a:hover:after {
+            width: 100%;
         }
 
-        .section h4 {
-            color: #2980b9;
-            margin: 1.5rem 0;
+        .mobile-menu-btn {
+            display: none;
+            cursor: pointer;
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            background-image: url('data:image/svg+xml;charset=utf8,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"%3E%3Cpath fill="%234a6cf7" fill-opacity="0.1" d="M0,64L48,80C96,96,192,128,288,144C384,160,480,160,576,138.7C672,117,768,75,864,64C960,53,1056,75,1152,101.3C1248,128,1344,160,1392,176L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"%3E%3C/path%3E%3C/svg%3E');
+            background-repeat: no-repeat;
+            background-position: bottom;
+            background-size: 100%;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .hero-title:after {
+            content: '';
+            position: absolute;
+            width: 70px;
+            height: 4px;
+            background: var(--primary);
+            bottom: -10px;
+            left: 0;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: var(--secondary);
+            margin-bottom: 30px;
+            font-weight: 400;
+        }
+
+        .hero-text {
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+            color: var(--dark);
+        }
+
+        .hero-cta {
+            display: inline-block;
+            background: var(--gradient);
+            color: white;
+            text-decoration: none;
+            padding: 12px 30px;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(74, 108, 247, 0.3);
+        }
+
+        .hero-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(74, 108, 247, 0.5);
+        }
+
+        .section-title {
             text-align: center;
-            font-size: 1.4rem;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 70px;
+            height: 4px;
+            background: var(--primary);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            padding: 30px;
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+            border-top: 4px solid transparent;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            border-top: 4px solid var(--primary);
+        }
+
+        .experience-item {
+            margin-bottom: 40px;
+        }
+
+        .experience-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .experience-title h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .experience-date {
+            background: var(--gray-light);
+            color: var(--gray);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+        }
+
+        .experience-company {
+            font-size: 1.1rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 15px 0;
+        }
+
+        .tech-item {
+            background: var(--light);
+            color: var(--primary);
+            padding: 5px 12px;
+            border-radius: 20px;
+            margin: 0 8px 8px 0;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
         }
 
         .project-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-            margin-top: 1.5rem;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 30px;
         }
 
-        .card {
-            background: #ffffff;
+        .project-card {
+            background: white;
             border-radius: 8px;
-            padding: 1.5rem;
-            transition: transform 0.2s ease;
-            border: 1px solid #e1e8ed;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
             height: 100%;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
         }
 
-        .card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
         }
 
-        /* 진행중/완료된 프로젝트 스타일 */
-        .ongoing {
-            border-left: 4px solid #3498db;
-            background-color: #f8fbff;
-        }
-        
-        .ongoing .date {
-            color: #3498db !important;
+        .project-image {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
         }
 
-        .ongoing:hover {
-            background-color: #f0f7ff;
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.5s ease;
         }
 
-        .completed {
-            border-left: 4px solid #7f8c8d;
-            background-color: #ffffff;
+        .project-card:hover .project-image img {
+            transform: scale(1.05);
         }
 
-        .completed .date {
-            color: #7f8c8d !important;
-        }
-
-        /* 새로운 description 스타일 */
-        .date {
-            font-weight: bold;
-            margin-bottom: 0.8rem;
-            font-size: 1rem;
-        }
-
-        .description .organization {
-            color: #3498db;
-            font-weight: 600;
-            margin-bottom: 0.4rem;
-            font-size: 1rem;
-        }
-
-        .description .activity {
-            color: #666;
-            font-size: 0.95rem;
-            line-height: 1.4;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-            display: block;
-        }
-
-        /* 기존 스타일 계속... */
-
-        @media (max-width: 1200px) {
-            .project-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .project-grid {
-                grid-template-columns: 1fr;
-            }
-
-            header {
-                padding: 3rem 0;
-            }
-
-            header h3 {
-                font-size: 1.8rem;
-            }
-
-            .container {
-                padding: 0 1rem;
-            }
-        }
-
-        footer {
-            background: white;
-            padding: 3rem 0;
-            margin-top: 2rem;
-            text-align: center;
-            box-shadow: 0 -2px 15px rgba(0, 0, 0, 0.05);
-        }
-        
-        .contact-container {
+        .project-content {
+            padding: 25px;
+            flex-grow: 1;
             display: flex;
+            flex-direction: column;
+        }
+
+        .project-title {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .project-description {
+            color: var(--secondary);
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .project-link {
+            display: inline-block;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            margin-top: auto;
+        }
+
+        .project-link:hover {
+            color: var(--primary-dark);
+            transform: translateX(5px);
+        }
+
+        .project-link i {
+            margin-left: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .project-link:hover i {
+            transform: translateX(3px);
+        }
+
+        .skills {
+            background-color: white;
+        }
+
+        .skill-category {
+            margin-bottom: 40px;
+        }
+
+        .skill-category h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+            font-weight: 600;
+        }
+
+        .skill-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-item {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .skill-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .skill-icon {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        .skill-name {
+            font-weight: 500;
+        }
+
+        .contact {
+            background-color: white;
+        }
+
+        .contact-form {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--dark);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--gray-light);
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(74, 108, 247, 0.2);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .btn-primary {
+            background: var(--gradient);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(74, 108, 247, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(74, 108, 247, 0.5);
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
             justify-content: center;
-            gap: 2rem;
-            margin-top: 1.5rem;
+            margin-top: 50px;
         }
-        
-        footer h3 {
-            color: #3498db;
-            margin-bottom: 1rem;
-            font-size: 1.8rem;
-        }
-        
+
         .contact-item {
             display: flex;
             align-items: center;
-            gap: 0.5rem;
-            color: #666;
+            margin: 0 20px 20px;
         }
-        
-        .contact-item a {
-            color: #3498db;
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--light);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 15px;
+            color: var(--primary);
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover .contact-icon {
+            background: var(--primary);
+            color: white;
+            transform: scale(1.1);
+        }
+
+        .contact-text a {
+            color: var(--dark);
             text-decoration: none;
-            transition: color 0.2s ease;
+            transition: all 0.3s ease;
         }
-        
-        .contact-item a:hover {
-            color: #2980b9;
-            text-decoration: underline;
+
+        .contact-text a:hover {
+            color: var(--primary);
         }
-        
-        @media (max-width: 768px) {
-            .contact-container {
-                flex-direction: column;
-                gap: 1rem;
+
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .social-links {
+            margin-bottom: 20px;
+        }
+
+        .social-links a {
+            color: white;
+            margin: 0 10px;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .footer-text {
+            color: var(--gray);
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            overflow-y: auto;
+            transition: all 0.3s ease;
+        }
+
+        .modal-content {
+            background-color: white;
+            max-width: 800px;
+            margin: 50px auto;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            animation: modalFadeIn 0.4s;
+        }
+
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
             }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .modal-header {
+            background: var(--gradient);
+            color: white;
+            padding: 20px;
+            position: relative;
+        }
+
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .close:hover {
+            transform: scale(1.2);
+        }
+
+        .modal-body {
+            padding: 30px;
+        }
+
+        .modal-title {
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+        }
+
+        .modal-subtitle {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .modal-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .modal-details {
+            margin: 30px 0;
+        }
+
+        .modal-detail-item {
+            margin-bottom: 20px;
+        }
+
+        .modal-detail-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--primary);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            z-index: 999;
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+        }
+
+        .btn-view-details {
+            background: var(--light);
+            color: var(--dark);
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .btn-view-details:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .achievement {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.3rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 15px 5%;
+            }
+            
+            nav {
+                position: absolute;
+                top: 70px;
+                left: 0;
+                background: var(--gradient);
+                width: 100%;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease;
+            }
+            
+            nav.active {
+                max-height: 300px;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            }
+            
+            nav ul {
+                flex-direction: column;
+                padding: 20px 0;
+            }
+            
+            nav ul li {
+                margin: 0;
+                text-align: center;
+                padding: 12px 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .experience-title {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .experience-date {
+                margin-top: 10px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-title {
+                font-size: 1.8rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+            
+            .skill-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .contact-item {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .contact-icon {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+        }
+
+        /* Animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.appear {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Typing animation */
+        .typing-animation {
+            display: inline-block;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 3px solid var(--primary);
+            animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+        }
+
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: var(--primary) }
+        }
+
+        /* Progress Bar */
+        .progress-container {
+            width: 100%;
+            height: 3px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1001;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: var(--success);
+            width: 0%;
+        }
+        
+        /* Theme toggle */
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1002;
+            background: white;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.1);
+        }
+
+        body.dark-mode {
+            background-color: #121212;
+            color: #e1e1e1;
+        }
+
+        body.dark-mode .card,
+        body.dark-mode .project-card,
+        body.dark-mode .modal-content,
+        body.dark-mode .skill-item {
+            background-color: #1e1e1e;
+            color: #e1e1e1;
+        }
+
+        body.dark-mode .project-title,
+        body.dark-mode .section-title,
+        body.dark-mode .hero-title,
+        body.dark-mode .experience-title h3,
+        body.dark-mode .skill-category h3,
+        body.dark-mode .form-label {
+            color: #ffffff;
+        }
+
+        body.dark-mode .hero-text,
+        body.dark-mode .project-description,
+        body.dark-mode .form-control {
+            color: #c5c5c5;
+        }
+
+        body.dark-mode .tech-item {
+            background: #2a2a2a;
+        }
+
+        body.dark-mode .form-control {
+            background: #2a2a2a;
+            border-color: #3a3a3a;
+        }
+
+        body.dark-mode .theme-toggle {
+            background: #2a2a2a;
+            color: #e1e1e1;
+        }
+
+        body.dark-mode .contact-text a {
+            color: #e1e1e1;
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h3>Exploring innovative technologies and adding value through creative approaches.</h3>
-        </div>
-    </header>
+  <header>
+    <h1>고현림 | 개발자 포트폴리오</h1>
+    <p>계속해서 도전하는 개발자</p>
+  </header>
 
-    <div class="container">
-        <div class="section">
-            <h3>Education</h3>
-            <div class="project-grid">
-                <div class="card ongoing">
-                    <h5 class="date">2022.09 ~ 현재</h5>
-                    <div class="description">
-                        <div class="organization">숭실대학교</div>
-                        <div class="activity">Software Engineering</div>
-                    </div>
-                </div>
-                <div class="card completed">
-                    <h5 class="date">2019.03 ~ 2022.08</h5>
-                    <div class="description">
-                        <div class="organization">숭실대학교</div>
-                        <div class="activity">Mechanical Engineering</div>
-                    </div>
-                </div>
-            </div>
-        </div>
+  <section id="intro">
+    <h2>소개</h2>
+    <p>안녕하세요, 저는 웹 개발과 블록체인 기술에 관심이 많고 사용자 친화적인 서비스를 만드는 것에 집중하는 개발자 고현림입니다. 항상 새로운 도메인을 학습하고 프로젝트로 연결하는 과정을 즐기며, 사용자 입장에서 문제를 바라보며 서비스를 만듭니다.</p>
+  </section>
 
-        <div class="section">
-            <h3>Project Experience</h3>
-            
-            <h4>[Development]</h4>
-            <div class="project-grid">
-                <a href="https://yourssu.com/">
-                    <div class="card completed">
-                        <h5 class="date">2023.01 ~ 2024.08</h5>
-                        <div class="description">
-                            <div class="organization">YOURSSU</div>
-                            <div class="activity">Web Frontend Member</div>
-                        </div>
-                    </div>
-                </a>
-                <a href="https://github.com/indianaPoly/realword_PB">
-                    <div class="card completed">
-                        <h5 class="date">2023.06 ~ 2023.09</h5>
-                        <div class="description">
-                            <div class="organization">YOURSSU</div>
-                            <div class="activity">RealWorld Pair Programming</div>
-                        </div>
-                    </div>
-                </a>
-                <a href="https://github.com/yourssu/Yourssu-landing-page">
-                    <div class="card completed">
-                        <h5 class="date">2024.01 ~ 2024.03</h5>
-                        <div class="description">
-                            <div class="organization">YOURSSU</div>
-                            <div class="activity">Landing Page Development</div>
-                        </div>
-                    </div>
-                </a>
-                <a href="https://github.com/indianaPoly/ai-tsp">
-                    <div class="card completed">
-                        <h5 class="date">2024.03 ~ 2024.06</h5>
-                        <div class="description">
-                            <div class="organization">숭실대학교</div>
-                            <div class="activity">Traveling Salesman Problem 연구</div>
-                        </div>
-                    </div>
-                </a>
-                <a href="https://github.com/indianaPoly/frontend-bedBeacon">
-                    <div class="card completed">
-                        <h5 class="date">2024.03 ~ 2024.06</h5>
-                        <div class="description">
-                            <div class="organization">숭실대학교</div>
-                            <div class="activity">Bed Beacon Project</div>
-                        </div>
-                    </div>
-                </a>
-                <a href="https://github.com/indianaPoly/blockchain-arbitrage">
-                    <div class="card completed">
-                        <h5 class="date">2024.06 ~ 2024.09</h5>
-                        <div class="description">
-                            <div class="organization">BlockWaveLabs</div>
-                            <div class="activity">OnChain Arbitrage 개발</div>
-                        </div>
-                    </div>
-                </a>
-                <a href="https://github.com/indianaPoly/blockchain-mev">
-                    <div class="card completed">
-                        <h5 class="date">2024.08 ~ 2024.09</h5>
-                        <div class="description">
-                            <div class="organization">개인 프로젝트</div>
-                            <div class="activity">MEV Template - Uniswap V3</div>
-                        </div>
-                    </div>
-                </a>
-                <a href="https://github.com/indianaPoly/backend-telegrambot">
-                    <div class="card completed">
-                        <h5 class="date">2024.08 ~ STOP</h5>
-                        <div class="description">
-                            <div class="organization">개인 프로젝트</div>
-                            <div class="activity">Job Telegram Bot</div>
-                        </div>
-                    </div>
-                </a>
-                <a href="https://github.com/indianaPoly/blockchain-localSimulator">
-                    <div class="card completed">
-                        <h5 class="date">2024.09 ~ STOP</h5>
-                        <div class="description">
-                            <div class="organization">개인 프로젝트</div>
-                            <div class="activity">Blockchain Local Simulator</div>
-                        </div>
-                    </div>
-                </a>
-                <a href="https://github.com/indianaPoly/blockchain-vaccination_medicalHistory">
-                    <div class="card completed">
-                        <h5 class="date">2024.09 ~ 2024.12</h5>
-                        <div class="description">
-                            <div class="organization">캡스톤종합디자인프로젝트 1</div>
-                            <div class="activity">자녀 건강관리 서비스</div>
-                        </div>
-                    </div>
-                </a>
-                <a href="https://gdscsoongsil.pages.dev/">
-                    <div class="card ongoing">
-                        <h5 class="date">2023.09 ~ 현재</h5>
-                        <div class="description">
-                            <div class="organization">Google Development Student Clubs</div>
-                            <div class="activity">Web Development Member</div>
-                        </div>
-                    </div>
-                </a>
-            </div>
+  <section id="experience">
+    <h2>현장실습 경험</h2>
+    <div class="experience">
+      <h3>BlockWaveLabs (Node.js 개발자)</h3>
+      <p><strong>기간:</strong> 2024.06 ~ 2024.08</p>
+      <p>Node.js 기반의 블록체인 차익거래 모니터링 시스템을 개발하며 실시간 가격 탐색 알고리즘과 병렬처리 테스트를 수행했습니다.</p>
+      <div>
+        <span class="tag">Node.js</span>
+        <span class="tag">JavaScript</span>
+        <span class="tag">web3.js</span>
+        <span class="tag">sqlite3</span>
+      </div>
+    </div>
+  </section>
 
-            <h4>[Non-Development]</h4>
-            <div class="project-grid">
-                <div class="card completed">
-                    <h5 class="date">2019.09 ~ 2019.12</h5>
-                    <div class="description">
-                        <div class="organization">만장일치</div>
-                        <div class="activity">토론동아리 활동</div>
-                    </div>
-                </div>
-                <div class="card completed">
-                    <h5 class="date">2022.03 ~ 2022.06</h5>
-                    <div class="description">
-                        <div class="organization">숭실대학교</div>
-                        <div class="activity">오픈소스를 이용한 실전창업</div>
-                    </div>
-                </div>
-                <div class="card completed">
-                    <h5 class="date">2022.08 ~ 2022.10</h5>
-                    <div class="description">
-                        <div class="organization">숭실대학교</div>
-                        <div class="activity">2022 슈퍼스타창업경진대회 (최우수상)</div>
-                    </div>
-                </div>
-                <div class="card completed">
-                    <h5 class="date">2023.03 ~ 2023.07</h5>
-                    <div class="description">
-                        <div class="organization">숭실대학교</div>
-                        <div class="activity">새내기 축구대회 (DF, 준우승)</div>
-                    </div>
-                </div>
-                <div class="card completed">
-                    <h5 class="date">2023.03 ~ 2023.07</h5>
-                    <div class="description">
-                        <div class="organization">KUSF</div>
-                        <div class="activity">한국대학스포츠협의회 데이터분석 교육</div>
-                    </div>
-                </div>
-                <div class="card completed">
-                    <h5 class="date">2023.07 ~ 2023.07</h5>
-                    <div class="description">
-                        <div class="organization">KUSF</div>
-                        <div class="activity">춘천시 마케팅 캠프 및 해커톤 (대학생올림픽)</div>
-                    </div>
-                </div>
-                <div class="card completed">
-                    <h5 class="date">2023.09 ~ 2023.12</h5>
-                    <div class="description">
-                        <div class="organization">숭실대학교</div>
-                        <div class="activity">백마기축구대회 (GK, 준우승)</div>
-                    </div>
-                </div>
-                <div class="card completed">
-                    <h5 class="date">2023.09 ~ 2023.12</h5>
-                    <div class="description">
-                        <div class="organization">SUFA</div>
-                        <div class="activity">서울권대학축구동아리연맹 대회 (GK, 우승)</div>
-                    </div>
-                </div>
-            </div>
-        </div>
+  <section id="projects">
+    <h2>프로젝트</h2>
 
-        <div class="section">
-            <h3>Work Experience</h3>
-            <div class="project-grid">
-                <div class="card completed">
-                    <h5 class="date">2024.06 ~ 2024.08</h5>
-                    <div class="description">
-                        <div class="organization">BlockWaveLabs</div>
-                        <div class="activity">Contract, Quant Developer</div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div class="project">
+      <h3>자녀 건강 데이터 관리 솔루션</h3>
+      <p><strong>기간:</strong> 2024.09 ~ 2024.12</p>
+      <p>퍼블릭 블록체인을 활용한 자녀 예방접종 및 건강 이력 관리 시스템을 구축하였습니다.</p>
+      <p><a href="https://github.com/indianaPoly/blockchain-vaccination_medicalHistory" target="_blank">GitHub 링크</a></p>
+      <div>
+        <span class="tag">React</span>
+        <span class="tag">Solidity</span>
+        <span class="tag">Hardhat</span>
+        <span class="tag">EIP-712</span>
+        <span class="tag">AES</span>
+      </div>
     </div>
 
-    <footer>
-        <div class="container">
-            <h3>Contact</h3>
-            <div class="contact-container">
-                <div class="contact-item">
-                    <span>github:</span>
-                    <a href="https://github.com/indianaPoly" target="_blank">indianaPoly</a>
-                </div>
-                <div class="contact-item">
-                    <span>mail:</span>
-                    <a href="mailto:hyeonlimgo5@gmail.com">hyeonlimgo5@gmail.com</a>
-                </div>
-            </div>
-        </div>
-    </footer>
+    <div class="project">
+      <h3>응급병동 위치 기반 정보 제공 서비스</h3>
+      <p><strong>기간:</strong> 2023.03 ~ 2024.06</p>
+      <p>사용자의 현재 위치 기반으로 5Km 이내 서울시 대학병원 응급실 정보를 제공하는 프로젝트입니다.</p>
+      <p><a href="https://github.com/indianaPoly/frontend-bedBeacon/tree/main" target="_blank">GitHub 링크</a></p>
+      <div>
+        <span class="tag">React</span>
+        <span class="tag">TypeScript</span>
+        <span class="tag">Tailwind</span>
+        <span class="tag">Google Analytics</span>
+      </div>
+    </div>
+
+    <div class="project">
+      <h3>교내 동아리 홈페이지</h3>
+      <p><strong>기간:</strong> 2023.12 ~ 2024.02</p>
+      <p>Gatsby를 활용하여 검색 최적화된 정적 홈페이지를 개발하였습니다.</p>
+      <p><a href="https://yourssu.com/" target="_blank">사이트 바로가기</a></p>
+      <div>
+        <span class="tag">Gatsby</span>
+        <span class="tag">GraphQL</span>
+        <span class="tag">SEO</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>연락처</h2>
+    <p><strong>Email:</strong> <a href="mailto:hyeonlimgo5@gmail.com">hyeonlimgo5@gmail.com</a></p>
+    <p><strong>GitHub:</strong> <a href="https://github.com/indianaPoly" target="_blank">github.com/indianaPoly</a></p>
+    <p><strong>My Page:</strong> <a href="https://indianapoly.github.io/" target="_blank">indianapoly.github.io</a></p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 고현림. All rights reserved.</p>
+  </footer>
 </body>
 </html>
